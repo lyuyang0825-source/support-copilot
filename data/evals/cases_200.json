@@ -1,0 +1,1414 @@
+[
+  {
+    "query": "退款多久到账",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款几天能到",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款一般几个工作日",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款是原路退回吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款到账要多久",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "签收后几天可以退货",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "无理由退货有几天",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "7天无理由怎么算",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "定制商品能退吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "生鲜可以退货吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "拆封的护肤品能退吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退货要配件齐全吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退货商品要完好么",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款验收后多久",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款能退到银行卡吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "超过7天还能退吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退货退款流程",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款审核要几天",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款为什么还没到",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款到账时间",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "无理由退货范围",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "哪些商品不支持退货",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退货需要保留包装吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "退款原路退回要多久",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "签收当天算7天吗",
+    "category": "退款-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "我要退款",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "帮我退款",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "申请退款",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "现在能退款吗",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "我要退钱",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "必须给我退",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "今天能退款吗",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "帮我退了这个订单",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "我要退货退款",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "现在给我退钱",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "申请退货退款",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {}
+  },
+  {
+    "query": "我要退款，订单号 A20261124001",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {
+      "order_id": "A20261124001"
+    }
+  },
+  {
+    "query": "帮我申请退款，订单号 A20261124002",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {
+      "order_id": "A20261124002"
+    }
+  },
+  {
+    "query": "这个订单我要退，订单号 A20261124003",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {
+      "order_id": "A20261124003"
+    }
+  },
+  {
+    "query": "立即退款，订单号 A20261124004",
+    "category": "退款-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-refund-001",
+    "context": {
+      "order_id": "A20261124004"
+    }
+  },
+  {
+    "query": "价保几天",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保规则是什么",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "降价能补差吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保怎么申请",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "补差是现金吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "补差以什么形式发放",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "秒杀价保吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "直播间价格能价保吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "签收后多久可以价保",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保需要同规格吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保7天从哪天算",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保可以退差价吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价格保护支持几天",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "降价了能退差价吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保补差流程",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "补差优惠券怎么用",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保范围包括什么",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "自营商品价保吗",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保能补多少",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "价保申请入口",
+    "category": "价保-信息",
+    "expect_action": "answer",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "帮我补差价",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "我要补差",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "现在能补差价吗",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "申请价保补差",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "给我退差价",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "必须补差价",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "今天能补差吗",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "帮我申请价保",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {}
+  },
+  {
+    "query": "我要价保，订单号 A20261124005",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {
+      "order_id": "A20261124005"
+    }
+  },
+  {
+    "query": "立即补差，订单号 A20261124006",
+    "category": "价保-诉求",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-price-001",
+    "context": {
+      "order_id": "A20261124006"
+    }
+  },
+  {
+    "query": "账号被冻结了怎么解封",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号冻结怎么办",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号被盗了怎么办",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "登录不了怎么办",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "封号了怎么申诉",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号绑定的手机号怎么改",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号申诉要多久",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "解封要几个工作日",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "申诉期间能注册新账号吗",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "身份核验没过能解冻吗",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号安全风险被冻结",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "登录页账号申诉在哪",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号被限制登录",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号异常登录",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "怎么提交身份信息",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号解冻审核时间",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号被封了找谁",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号申诉入口",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "账号冻结要本人信息吗",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "新账号注册后能解封吗",
+    "category": "账号安全",
+    "expect_action": "answer_with_human",
+    "expect_kb": "kb-account-001",
+    "context": {}
+  },
+  {
+    "query": "发票抬头能改吗",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "怎么开发票",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "电子发票多久能收到",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票能重开吗",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "跨月发票怎么处理",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "开票邮箱填错了",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "付款后多久开发票",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "签收后多久能换开抬头",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票抬头只能改一次吗",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票类型是什么",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票怎么推送",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票换开抬头",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票重开要联系谁",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "电子普通发票怎么开",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票开票时间",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票抬头修改",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票可以开公司抬头吗",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票开个人抬头",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "开票信息填错怎么办",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "发票跨月能重开吗",
+    "category": "发票",
+    "expect_action": "answer",
+    "expect_kb": "kb-invoice-001",
+    "context": {}
+  },
+  {
+    "query": "一般几天能到货",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "下单后多久发货",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "48小时内发货吗",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "偏远地区几天到",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "预售商品什么时候发",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "现货多久出库",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "物流几天能到",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "发货后多久送达",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "普通地区送达时间",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "偏远地区配送时间",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "预售发货日怎么看",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "付款后什么时候发货",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "出库要多久",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "快递几天到",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "到货时间怎么算",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "现货订单发货时效",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "48小时发货是工作日吗",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "偏远地区5到7天吗",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "详情页发货日为准吗",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "下单多久能收到",
+    "category": "物流",
+    "expect_action": "answer",
+    "expect_kb": "kb-ship-001",
+    "context": {}
+  },
+  {
+    "query": "保修多久",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "整机保修几个月",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修怎么申请",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "维修申请路径",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "进液能保修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "摔坏了保修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "私自拆修还能保修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "非人为故障免费维修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修从什么时候算",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "签收日起保修12个月吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修范围包括什么",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "怎么申请免费维修",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "订单详情哪里申请维修",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修期内维修收费吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "人为损坏保修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "进液保修范围",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "摔损能免费修吗",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修申请入口",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "整机保修时间",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "保修12个月从哪天算",
+    "category": "保修",
+    "expect_action": "answer",
+    "expect_kb": "kb-warranty-001",
+    "context": {}
+  },
+  {
+    "query": "优惠券能叠加吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "满减和折扣能一起用吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "一单能用几张券",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "退款优惠券会退回吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "平台券和店铺券能一起用吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "优惠券叠加规则",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "满减券和折扣券能叠加吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "系统怎么选优惠券",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "退款时优惠券怎么退",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "最多能用几张平台券",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "最多能用几张店铺券",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "优惠券按什么比例退",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "折扣券能和满减一起用吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "优惠券使用规则",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "退款后券会回来吗",
+    "category": "优惠券",
+    "expect_action": "answer",
+    "expect_kb": "kb-coupon-001",
+    "context": {}
+  },
+  {
+    "query": "客服几点上班",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "人工客服服务时间",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "客服工作时间",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "营业到几点",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "你们几点下班",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "22点后还有人工吗",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "晚上10点后能找人工吗",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "人工客服几点到几点",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "客服在线时间",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "9点上班吗",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "客服早上几点开始",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "22点后机器人接待吗",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "紧急账号问题晚上能留言吗",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "次日几点回电",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "人工客服时间",
+    "category": "客服时间",
+    "expect_action": "answer",
+    "expect_kb": "kb-hours-001",
+    "context": {}
+  },
+  {
+    "query": "你们支持火星配送吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "能帮我写首诗吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "今天天气怎么样",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "可以教我做菜吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "帮我订机票",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "能翻译一段英文吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "推荐一部电影",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "股票会涨吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "你会讲笑话吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "能陪我聊天吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "可以算命吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "帮我写代码",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "能生成图片吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "附近有餐厅吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "明天会下雨吗",
+    "category": "知识库外",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "我要投诉",
+    "category": "投诉法务",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "我要起诉你们",
+    "category": "投诉法务",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "我要找12315",
+    "category": "投诉法务",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "我要曝光你们",
+    "category": "投诉法务",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  },
+  {
+    "query": "我要报警",
+    "category": "投诉法务",
+    "expect_action": "refuse_and_escalate",
+    "expect_kb": null,
+    "context": {}
+  }
+]

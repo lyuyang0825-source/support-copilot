@@ -18,4 +18,4 @@ jobs:
       - name: 知识库 lint
         run: python3 -m support_copilot.cli --lint
       - name: 决策评测
-        run: python3 scripts/run_evals.py
+        run: python3 scripts/run_evals.py --tickets

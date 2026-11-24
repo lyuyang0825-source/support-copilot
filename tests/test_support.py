@@ -4,11 +4,13 @@ import tempfile
 import unittest
 from datetime import date
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from support_copilot.agent import SupportAgent, run_once  # noqa: E402
 from support_copilot.kb import KnowledgeBase, parse_entry  # noqa: E402
+from support_copilot.llm import LLMConfig, polish_body  # noqa: E402
 from support_copilot.policy import detect_intent, mask_pii, untraceable_numbers  # noqa: E402
 from support_copilot.qa import score_dialog  # noqa: E402
 
@@ -111,6 +113,130 @@ class TestAgent(unittest.TestCase):
             ans = self.agent.respond(q)
             self.assertEqual(ans.action, "answer", q)
             self.assertEqual(ans.citations[0].id, "kb-hours-001", q)
+
+
+class TestLLM(unittest.TestCase):
+    CFG = LLMConfig(base_url="http://localhost:11434/v1", model="test-model")
+    SRC = (
+        "自签收之日起 7 天内，商品保持完好、配件齐全可申请无理由退货。"
+        "定制类、生鲜、已拆封的个人护理与贴身用品除外；"
+        "退款在仓库验收后 3–5 个工作日原路退回。"
+    )
+    GOOD = (
+        "签收后 7 天内，商品完好、配件齐全即可申请无理由退货；"
+        "定制、生鲜、已拆封个护除外，退款在验收后 3–5 个工作日原路退回。"
+    )
+
+    @patch("support_copilot.llm._post_json")
+    def test_valid_polish(self, post):
+        post.return_value = {"choices": [{"message": {"content": self.GOOD}}]}
+        outcome = polish_body(
+            self.CFG,
+            query="退款多久到账",
+            question="实物商品支持几天无理由退货",
+            source_answer=self.SRC,
+            action="answer",
+        )
+        self.assertEqual(outcome.text, self.GOOD)
+        self.assertIn("已润色", outcome.note)
+
+    @patch("support_copilot.llm._post_json")
+    def test_reject_promise(self, post):
+        post.return_value = {"choices": [{"message": {"content": "放心，7 天内一定给您退。"}}]}
+        outcome = polish_body(
+            self.CFG,
+            query="退款多久到账",
+            question="实物商品支持几天无理由退货",
+            source_answer=self.SRC,
+            action="answer",
+        )
+        self.assertIsNone(outcome.text)
+        self.assertIn("承诺词", outcome.note)
+
+    @patch("support_copilot.llm._post_json")
+    def test_reject_invented_number(self, post):
+        post.return_value = {"choices": [{"message": {"content": "退款 2 个工作日到账。"}}]}
+        outcome = polish_body(
+            self.CFG,
+            query="退款多久到账",
+            question="实物商品支持几天无理由退货",
+            source_answer=self.SRC,
+            action="answer",
+        )
+        self.assertIsNone(outcome.text)
+        self.assertIn("数字", outcome.note)
+
+    @patch("support_copilot.llm._post_json")
+    def test_reject_invalid_content_type(self, post):
+        post.return_value = {"choices": [{"message": {"content": None}}]}
+        outcome = polish_body(
+            self.CFG,
+            query="退款多久到账",
+            question="实物商品支持几天无理由退货",
+            source_answer=self.SRC,
+            action="answer",
+        )
+        self.assertIsNone(outcome.text)
+        self.assertIn("格式错误", outcome.note)
+
+    def test_endpoint_completion(self):
+        self.assertEqual(
+            LLMConfig(base_url="http://localhost:11434/v1").endpoint,
+            "http://localhost:11434/v1/chat/completions",
+        )
+
+    @patch("support_copilot.llm._post_json")
+    def test_agent_uses_llm_for_wording_only(self, post):
+        post.return_value = {"choices": [{"message": {"content": self.GOOD}}]}
+        agent = SupportAgent(
+            KnowledgeBase.load(KB_DIR), today=date(2026, 11, 24), llm=self.CFG, use_llm=True
+        )
+        ans = agent.respond("退款多久到账？")
+        self.assertEqual(ans.action, "answer")
+        self.assertEqual(ans.citations[0].id, "kb-refund-001")
+        self.assertIn(self.GOOD, ans.reply)
+        self.assertTrue(any(n.startswith("llm=") for n in ans.notes))
+
+    @patch("support_copilot.llm._post_json")
+    def test_agent_falls_back_on_bad_polish(self, post):
+        post.return_value = {"choices": [{"message": {"content": "放心，7 天内一定给您退。"}}]}
+        agent = SupportAgent(
+            KnowledgeBase.load(KB_DIR), today=date(2026, 11, 24), llm=self.CFG, use_llm=True
+        )
+        ans = agent.respond("退款多久到账？")
+        self.assertEqual(ans.action, "answer")
+        self.assertNotIn("一定", ans.reply)
+        self.assertIn("自签收之日起", ans.reply)
+        self.assertTrue(any(n.startswith("llm 未采用") for n in ans.notes))
+
+    @patch("support_copilot.llm._post_json")
+    def test_agent_masks_pii_before_llm(self, post):
+        post.return_value = {"choices": [{"message": {"content": self.GOOD}}]}
+        agent = SupportAgent(
+            KnowledgeBase.load(KB_DIR), today=date(2026, 11, 24), llm=self.CFG, use_llm=True
+        )
+        agent.respond("退款多久到账，手机号 13800138000")
+        payload = post.call_args.args[1]
+        sent = payload["messages"][1]["content"]
+        self.assertNotIn("13800138000", sent)
+        self.assertIn("[手机号已脱敏]", sent)
+
+    def test_llm_can_be_forced_off(self):
+        agent = SupportAgent(
+            KnowledgeBase.load(KB_DIR), today=date(2026, 11, 24), llm=self.CFG, use_llm=False
+        )
+        ans = agent.respond("退款多久到账？")
+        self.assertFalse(any("llm" in n for n in ans.notes))
+
+    def test_200_case_suite(self):
+        cases = json.loads(
+            (ROOT / "data" / "evals" / "cases_200.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(len(cases), 200)
+        self.assertEqual(len({c["query"] for c in cases}), 200)
+        categories = {c["category"] for c in cases}
+        self.assertIn("知识库外", categories)
+        self.assertIn("投诉法务", categories)
 
 
 class TestPolicy(unittest.TestCase):

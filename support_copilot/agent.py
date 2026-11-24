@@ -13,6 +13,7 @@ from pathlib import Path
 
 from .bm25 import BM25
 from .kb import KBEntry, KnowledgeBase
+from .llm import LLMConfig, polish_body
 from .policy import (
     QUEUE_MAP,
     confidence_from_score,
@@ -37,6 +38,19 @@ REQUIRED_SLOTS = {
 }
 
 GREETINGS = ("你好", "您好", "在吗", "在么", "hi", "hello", "有人吗")
+OUT_OF_SCOPE_TERMS = ("火星", "月球", "外太空", "国际空间站")
+
+# 意图与知识条目对齐：避免“退款后券会回来吗”被退款条目抢走
+INTENT_KB_PREFIX = {
+    "refund": "kb-refund",
+    "price": "kb-price",
+    "account": "kb-account",
+    "invoice": "kb-invoice",
+    "shipping": "kb-ship",
+    "warranty": "kb-warranty",
+    "coupon": "kb-coupon",
+    "hours": "kb-hours",
+}
 
 
 @dataclass
@@ -95,11 +109,20 @@ class Answer:
 
 
 class SupportAgent:
-    def __init__(self, kb: KnowledgeBase, today: date | None = None):
+    def __init__(
+        self,
+        kb: KnowledgeBase,
+        today: date | None = None,
+        llm: LLMConfig | None = None,
+        use_llm: bool | None = None,
+    ):
         self.kb = kb
         self.today = today or date.today()
         self.entries: list[KBEntry] = kb.active(self.today)
         self.bm25 = BM25([e.text for e in self.entries]) if self.entries else None
+        self.llm = llm if llm is not None else LLMConfig.from_env()
+        # 默认：配置了就启用；显式传 False 可强制关掉，便于评测做 A/B。
+        self.use_llm = bool(self.llm) if use_llm is None else bool(use_llm and self.llm)
 
     def _cite(self, entry: KBEntry, score: float, primary: bool) -> Citation:
         return Citation(
@@ -146,6 +169,22 @@ class SupportAgent:
             f"{entry.effective_to.isoformat()} 有效）"
         )
 
+    def _polish(self, entry: KBEntry, query: str, action: str) -> tuple[str, list[str]]:
+        """模型只改措辞；任何校验失败都回退到知识原文。"""
+        body = entry.answer
+        if not (self.use_llm and self.llm):
+            return body, []
+        outcome = polish_body(
+            self.llm,
+            query=mask_pii(query),
+            question=entry.question,
+            source_answer=entry.answer,
+            action=action,
+        )
+        if outcome.text:
+            return outcome.text, [outcome.note]
+        return body, [f"llm 未采用：{outcome.note}"]
+
     def respond(self, query: str, context: dict | None = None) -> Answer:
         context = context or {}
         q = query.strip()
@@ -164,12 +203,35 @@ class SupportAgent:
                 notes=["问候语，不消耗知识检索"],
             )
 
+        if any(term in q for term in OUT_OF_SCOPE_TERMS):
+            ticket = self._make_ticket(intent, 0.0, q, context, [], "超出服务范围")
+            return Answer(
+                q,
+                "这个问题超出了当前服务范围，知识库里也没有对应规则，已转人工确认，不会凭空承诺。",
+                "refuse_and_escalate",
+                0.0,
+                intent.name,
+                [],
+                ticket,
+                ["范围外问题：不在知识库覆盖内"],
+            )
+
         if not self.entries or self.bm25 is None:
             ticket = self._make_ticket(intent, 0.0, q, context, [], "当前没有生效知识")
             return Answer(q, "当前知识库没有生效条目，已转人工。", "refuse_and_escalate", 0.0, intent.name, [], ticket)
 
-        scores = self.bm25.search(q)
-        idx, top_score = scores[0]
+        raw_scores = self.bm25.search(q)
+        scores = list(raw_scores)
+        prefix = INTENT_KB_PREFIX.get(intent.name)
+        if prefix:
+            scores = [
+                (i, s + (2.0 if self.entries[i].id.startswith(prefix) else 0.0))
+                for i, s in scores
+            ]
+            scores.sort(key=lambda x: x[1], reverse=True)
+        idx, _ranked_score = scores[0]
+        # 意图只负责“把正确条目排上来”，置信度仍用原始检索分，避免把零证据抬成可答。
+        top_score = dict(raw_scores)[idx]
         entry = self.entries[idx]
         conf = confidence_from_score(top_score)
         action = decide(top_score, intent)
@@ -195,18 +257,20 @@ class SupportAgent:
         if action == "answer_with_human":
             reason = intent.reason or "置信度不足以直接下结论"
             ticket = self._make_ticket(intent, conf, q, context, checked, reason)
-            reply = self._base_reply(entry, entry.answer)
+            body, llm_notes = self._polish(entry, q, action)
+            reply = self._base_reply(entry, body)
             reply += (
                 f"\n\n说明：{reason}，以上为规则解释，最终结果需人工确认。\n"
                 f"已创建工单 {ticket.ticket_id}（{ticket.queue}），"
                 "人工会沿用上面的信息，不需要你重复描述。"
             )
-            return Answer(q, reply, action, conf, intent.name, citations, ticket)
+            return Answer(q, reply, action, conf, intent.name, citations, ticket, llm_notes)
 
-        reply = self._base_reply(entry, entry.answer)
+        body, llm_notes = self._polish(entry, q, action)
+        reply = self._base_reply(entry, body)
         if related:
             reply += "\n相关规则：" + "、".join(f"{c.id}" for c in related) + "（可一并核对）"
-        notes = []
+        notes = list(llm_notes)
         promises = scan_promises(reply)
         if promises:
             notes.append(f"回复含承诺性表述 {promises}，建议法务复核")
@@ -219,10 +283,17 @@ class SupportAgent:
         return Answer(q, reply, action, conf, intent.name, citations, None, notes)
 
 
-def run_once(kb_path: str | Path, query: str, context: dict | None = None, on: str | None = None) -> Answer:
+def run_once(
+    kb_path: str | Path,
+    query: str,
+    context: dict | None = None,
+    on: str | None = None,
+    use_llm: bool | None = None,
+    llm: LLMConfig | None = None,
+) -> Answer:
     kb = KnowledgeBase.load(kb_path)
     day = date.fromisoformat(on) if on else date.today()
-    agent = SupportAgent(kb, today=day)
+    agent = SupportAgent(kb, today=day, llm=llm, use_llm=use_llm)
     return agent.respond(query, context)
 
 

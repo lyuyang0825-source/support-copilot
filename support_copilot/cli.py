@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .agent import SupportAgent, run_once
 from .kb import KnowledgeBase
+from .llm import LLMConfig
 from .qa import score_dialog
 
 DEMO_QUERIES = [
@@ -44,7 +45,20 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lint", action="store_true", help="检查知识库冲突与质量问题")
     parser.add_argument("--eval", help="对会话 JSON 跑质检")
     parser.add_argument("--demo", action="store_true", help="跑内置演示问题集")
+    parser.add_argument(
+        "--llm",
+        action="store_true",
+        help="启用模型润色（需 LLM_BASE_URL；托管服务还需 LLM_API_KEY）",
+    )
+    parser.add_argument("--no-llm", action="store_true", help="强制关闭模型润色")
     args = parser.parse_args(argv if argv is not None else sys.argv[1:])
+
+    if args.llm and args.no_llm:
+        parser.error("--llm 与 --no-llm 不能同时使用")
+    llm_config = LLMConfig.from_env()
+    if args.llm and not llm_config:
+        parser.error("启用 --llm 需要先设置 LLM_BASE_URL（托管服务再加 LLM_API_KEY）")
+    use_llm = True if args.llm else (False if args.no_llm else None)
 
     kb = KnowledgeBase.load(args.kb)
 
@@ -64,7 +78,7 @@ def main(argv: list[str] | None = None) -> int:
         out_dir.mkdir(parents=True, exist_ok=True)
         results = []
         for q, ctx in DEMO_QUERIES:
-            ans = run_once(args.kb, q, ctx, args.date)
+            ans = run_once(args.kb, q, ctx, args.date, use_llm=use_llm)
             _print_answer(ans)
             results.append(ans.to_dict())
         (out_dir / "answers.json").write_text(
@@ -89,7 +103,7 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("请提供 --query，或使用 --demo / --lint / --eval")
 
     context = json.loads(args.context)
-    ans = run_once(args.kb, args.query, context, args.date)
+    ans = run_once(args.kb, args.query, context, args.date, use_llm=use_llm)
     _print_answer(ans, args.json)
     return 2 if ans.action == "refuse_and_escalate" else 0
 
