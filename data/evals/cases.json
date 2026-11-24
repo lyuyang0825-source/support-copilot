@@ -1,0 +1,12 @@
+[
+  {"query": "退款多久到账？", "context": {"order_id": "A20261124001"}, "expect_action": "answer", "expect_kb": "kb-refund-001"},
+  {"query": "我要退款", "context": {"order_id": "A20261124001"}, "expect_action": "answer_with_human", "expect_kb": "kb-refund-001"},
+  {"query": "价保几天？帮我补差价，订单号 A20261124002", "context": {"order_id": "A20261124002", "product": "降噪耳机"}, "expect_action": "answer_with_human", "expect_kb": "kb-price-001"},
+  {"query": "账号被冻结了怎么解封", "context": {}, "expect_action": "answer_with_human", "expect_kb": "kb-account-001"},
+  {"query": "发票抬头能改吗", "context": {}, "expect_action": "answer", "expect_kb": "kb-invoice-001"},
+  {"query": "你们支持火星配送吗", "context": {}, "expect_action": "refuse_and_escalate", "expect_kb": null},
+  {"query": "一般几天能到货", "context": {"order_id": "A20261124003"}, "expect_action": "answer", "expect_kb": "kb-ship-001"},
+  {"query": "保修多久", "context": {"order_id": "A20261124004"}, "expect_action": "answer", "expect_kb": "kb-warranty-001"},
+  {"query": "优惠券能叠加吗", "context": {}, "expect_action": "answer", "expect_kb": "kb-coupon-001"},
+  {"query": "客服几点上班", "context": {}, "expect_action": "answer", "expect_kb": "kb-hours-001"}
+]
